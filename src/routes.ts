@@ -1,10 +1,20 @@
 import express = require("express");
+import fs = require("fs");
 import process from "process";
 import Box from "./box";
 
-const jsonPath = process.env.PAGES_JSON;
-if (!jsonPath) {
-  throw new Error("PAGES_JSON is not set.");
+let jsonPath = process.env.PAGES_JSON;
+const exists = fs.existsSync(jsonPath);
+if (!jsonPath || !exists) {
+  const paths = fs.readdirSync(".");
+  jsonPath = paths.find(
+    (p) =>
+      /\.json$/.test(p) &&
+      !/^ts.+\.json$/.test(p) &&
+      !/^package(-lock)?\.json$/.test(p));
+  if (!jsonPath) {
+    throw new Error("PAGES_JSON is not set.");
+  }
 }
 const box = new Box(jsonPath);
 
