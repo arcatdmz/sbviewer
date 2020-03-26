@@ -20,7 +20,7 @@
   "dependencies": {
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "sb2md": "^1.0.1",
+    "sb2md": "git+https://github.com/arcatdmz/sb2md.git",
     "showdown": "^1.9.0"
   },
   "devDependencies": {
