@@ -25,6 +25,7 @@ export default class Box {
   }
 
   public getPage(pageName: string): Page|undefined {
-    return this.pages().find((p) => p.title === pageName);
+    const p = this.json.pages.find((page) => page.title === pageName);
+    return p ? new Page(p) : undefined;
   }
 }
