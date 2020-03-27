@@ -21,7 +21,7 @@ export default class Box {
   }
 
   public pages(): Page[] {
-    return this.json.pages.sort((a, b) => b.updated - a.updated).map((p) => new Page(p));
+    return this.json.pages.sort((a, b) => a.title.localeCompare(b.title)).map((p) => new Page(p));
   }
 
   public getPage(pageName: string): Page|undefined {
