@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response, Router } from "express";
-import Box from "../box";
+import { Box } from "../box";
 
 export class Pages {
   public router: Router;

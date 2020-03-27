@@ -18,9 +18,12 @@
       <div class="ui basic segment">
           <h1 class="ui header"><%= box.name() %></h1>
           <ul>
+            <li><a href="/all">All entries in a single page</a></li>
+          </ul>
+          <ul>
             <% box.pages().forEach((page) => { %>
               <li>
-                <a href="pages<%= page.path() %>"><%= page.title %></a>
+                <a href="<%= page.path() %>"><%= page.title %></a>
               </li>
             <% }); %>
           </ul>

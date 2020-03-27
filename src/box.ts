@@ -1,11 +1,11 @@
 import fs from "fs";
 import { IPages, Page } from "./Page";
 
-interface IBoxOptions {
+export interface IBoxOptions {
   linesProcessor?: (lines: string[]) => string[];
 }
 
-export default class Box {
+export class Box {
   public readonly filename: string;
   private readonly json: IPages;
 

@@ -8,7 +8,7 @@ interface IPage {
   lines: string[];
 }
 
-interface IPageOptions {
+export interface IPageOptions {
   linesProcessor?: (lines: string[]) => string[];
 }
 
@@ -26,7 +26,7 @@ export class Page implements IPage {
   }
 
   public path(): string {
-    return `/${this.title}`;
+    return `/pages/${this.title}`;
   }
 
   public updatedAt(): Date {

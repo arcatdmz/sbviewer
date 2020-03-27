@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pages - <%= box.name() %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.4/dist/semantic.min.css">
+</head>
+<body>
+  <div class="ui container">
+      <div class="ui basic segment">
+          <div class="ui breadcrumb">
+              <a href="/" class="section">Index</a>
+              <i class="right angle icon divider"></i>
+              <span class="active section">Pages</span>
+        </div>
+      </div>
+      <div class="ui divider"></div>
+      <% pages.forEach((page) => { %>
+        <div class="ui segment">
+          <h3 class="ui header"><a href="<%= page.path() %>"><%= page.title %></a></h3>
+          <%- page.html() %>
+        </div>
+      <% }); %>
+      <div class="ui divider"></div>
+      <div class="ui basic right aligned segment">
+          <p>exported at <b><%= box.exportedAt() %></b></p>
+      </div>
+    </div>
+</body>
+</html>
