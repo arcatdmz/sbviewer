@@ -5,20 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><%= box.name() %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.4/dist/semantic.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="header"><%= box.name() %></h1>
-        <p>exported at <%= box.exportedAt() %></p>
-        <ul>
-          <% box.pages().forEach((page) => { %>
-            <li>
-              <a href="<%= page.path() %>"><%= page.title %></a>
-            </li>
-          <% }); %>
-        </ul>
+  <div class="ui container">
+      <div class="ui basic segment">
+          <div class="ui breadcrumb">
+              <a href="/" class="section">Index</a>
+          </div>
+      </div>
+      <div class="ui divider"></div>
+      <div class="ui basic segment">
+          <h1 class="ui header"><%= box.name() %></h1>
+          <ul>
+            <% box.pages().forEach((page) => { %>
+              <li>
+                <a href="<%= page.path() %>"><%= page.title %></a>
+              </li>
+            <% }); %>
+          </ul>
+      </div>
+      <div class="ui divider"></div>
+      <div class="ui basic right aligned segment">
+          <p>exported at <%= box.exportedAt() %></p>
+      </div>
     </div>
 </body>
 </html>

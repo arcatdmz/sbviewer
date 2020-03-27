@@ -5,15 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><%= page.title %> - <%= box.name() %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.4/dist/semantic.min.css">
 </head>
 <body>
-    <div class="container">
-        <a href="/">back to index</a>
-        <h1 class="header"><%= page.title %></h1>
-        <pre>updated at <%= page.updatedAt() %></pre>
-        <%- page.html() %>
+    <div class="ui container">
+        <div class="ui basic segment">
+            <div class="ui breadcrumb">
+                <a href="/" class="section">Index</a>
+                <i class="right angle icon divider"></i>
+                <span class="active section"><%= page.title %></span>
+            </div>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui basic segment">
+          <%- page.html() %>
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui basic right aligned segment">
+          <p>updated at <b><%= page.updatedAt() %></b></p>
+        </div>
     </div>
 </body>
 </html>
