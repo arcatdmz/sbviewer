@@ -6,8 +6,8 @@
 ## 使い方
 
 - Scrapboxにて Settings→Export Pages からJSONをダウンロード
-- 環境変数 `PAGES_JSON` を指定して起動
-- `PAGES_JSON` が指定されていなかったら、ルートディレクトリのJSONファイルを適当に選んでパース
+- 環境変数 `PAGES_JSON` でJSONファイルを指定して起動
+- `PAGES_JSON` が指定されていなかったら、ルートディレクトリのJSONファイルが適当に選ばれる
 
 ```
 % npm install
@@ -18,6 +18,10 @@
 % npm install
 % npm run dev
 ```
+
+- 環境変数 `PORT` でサーバのポートを指定（`8080`など）
+- [dotenv](https://github.com/motdotla/dotenv) を使っているので環境変数は `.env` に書けば反映される
+- `src/options.ts` で表示したいページなどを制御できる
 
 [![Image from Gyazo](https://i.gyazo.com/7bfd1efbe7363b0c335143d354a9ab53.png)](https://gyazo.com/7bfd1efbe7363b0c335143d354a9ab53)
 
