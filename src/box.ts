@@ -1,11 +1,15 @@
 import fs from "fs";
 import { IPages, Page } from "./Page";
 
+interface IBoxOptions {
+  linesProcessor?: (lines: string[]) => string[];
+}
+
 export default class Box {
   public readonly filename: string;
   private readonly json: IPages;
 
-  constructor(filename: string) {
+  constructor(filename: string, private options?: IBoxOptions) {
     this.filename = filename;
     this.json = JSON.parse(
       fs.readFileSync(this.filename, "utf8")
@@ -21,11 +25,14 @@ export default class Box {
   }
 
   public pages(): Page[] {
-    return this.json.pages.sort((a, b) => a.title.localeCompare(b.title)).map((p) => new Page(p));
+    return this.json.pages
+      .sort((a, b) => a.title.localeCompare(b.title))
+      .map((p) => new Page(p, this.options));
   }
 
   public getPage(pageName: string): Page|undefined {
-    const p = this.json.pages.find((page) => page.title === pageName);
-    return p ? new Page(p) : undefined;
+    const p = this.json.pages
+      .find((page) => page.title === pageName);
+    return p ? new Page(p, this.options) : undefined;
   }
 }

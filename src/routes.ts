@@ -18,7 +18,12 @@ if (!jsonPath || !exists) {
     throw new Error("PAGES_JSON is not set.");
   }
 }
-const box = new Box(jsonPath);
+
+const box = new Box(jsonPath, {
+  // linesProcessor: (lines) => {
+  //   return lines;
+  // }
+});
 
 export const register = (app: express.Application) => {
   app.get("/", (req, res) => {

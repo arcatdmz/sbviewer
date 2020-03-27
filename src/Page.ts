@@ -7,13 +7,18 @@ interface IPage {
   updated: number;
   lines: string[];
 }
+
+interface IPageOptions {
+  linesProcessor?: (lines: string[]) => string[];
+}
+
 export class Page implements IPage {
   public title: string;
   public created: number;
   public updated: number;
   public lines: string[];
 
-  constructor(params: IPage) {
+  constructor(params: IPage, private options?: IPageOptions) {
     this.title = params.title;
     this.created = params.created;
     this.updated = params.updated;
@@ -29,7 +34,11 @@ export class Page implements IPage {
   }
 
   public markdown(): string {
-    return sb2md.convert([...this.lines].splice(1).join("\n"));
+    let { lines } = this;
+    if (this.options && this.options.linesProcessor) {
+      lines = this.options.linesProcessor(lines);
+    }
+    return sb2md.convert([...lines].splice(1).join("\n"));
   }
 
   public html(): string {
