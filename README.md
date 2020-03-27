@@ -6,11 +6,17 @@
 ## 使い方
 
 - Scrapboxにて Settings→Export Pages からJSONをダウンロード
-- PAGES_JSONを指定して起動
+- 環境変数 `PAGES_JSON` を指定して起動
+- `PAGES_JSON` が指定されていなかったら、ルートディレクトリのJSONファイルを適当に選んでパース
 
 ```
 % npm install
-% PAGES_JSON=~/Downloads/hitode909.json npm run dev
+% cross-env PAGES_JSON=~/Downloads/hitode909.json npm run dev
+```
+
+```
+% npm install
+% npm run dev
 ```
 
 [![Image from Gyazo](https://i.gyazo.com/7bfd1efbe7363b0c335143d354a9ab53.png)](https://gyazo.com/7bfd1efbe7363b0c335143d354a9ab53)
