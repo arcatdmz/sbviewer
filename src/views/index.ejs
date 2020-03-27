@@ -20,14 +20,14 @@
           <ul>
             <% box.pages().forEach((page) => { %>
               <li>
-                <a href="<%= page.path() %>"><%= page.title %></a>
+                <a href="pages<%= page.path() %>"><%= page.title %></a>
               </li>
             <% }); %>
           </ul>
       </div>
       <div class="ui divider"></div>
       <div class="ui basic right aligned segment">
-          <p>exported at <%= box.exportedAt() %></p>
+          <p>exported at <b><%= box.exportedAt() %></b></p>
       </div>
     </div>
 </body>
