@@ -24,7 +24,7 @@ cross-env PAGES_JSON=~/Downloads/hitode909.json npm run dev
 
 ### 目次ページ (`/`)
 
-[![Image from Gyazo](https://i.gyazo.com/5eebb79b37ae5d7dc86a0e33e2bbee17.png)](https://gyazo.com/5eebb79b37ae5d7dc86a0e33e2bbee17)
+[![Image from Gyazo](https://i.gyazo.com/97dae3aa3db50b5b582e4b92d95c2446.png)](https://gyazo.com/97dae3aa3db50b5b582e4b92d95c2446)
 
 ### 全ページ (`/all`)
 
